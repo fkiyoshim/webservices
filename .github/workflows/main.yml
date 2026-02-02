@@ -1,0 +1,59 @@
+name: Testes Automáticos WebServices (Windows Local)
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  run-tests:
+    runs-on: self-hosted
+    # 1. Adicione permissões explícitas
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    steps:
+    - name: Checkout do Código
+      uses: actions/checkout@v4
+      with:
+        # 2. Garante que o token seja usado para operações de git
+        persist-credentials: true
+
+    # ... passos do maven e python ...
+
+    - name: Deploy para GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
+        # 3. Importante para evitar conflitos de histórico no seu runner
+        force_orphan: true
+
+    - name: Executar Maven Test
+      # No Windows, usamos shell: cmd ou powershell (padrão)
+      # Removi o passo de criar o settings.xml pois ele já está na pasta .m2 do usuário
+      run: mvn clean test
+      env:
+        ARTIFACTORY_USER: ${{ secrets.ARTIFACTORY_USER }}
+        ARTIFACTORY_TOKEN: ${{ secrets.ARTIFACTORY_TOKEN }}
+
+    - name: Converter Planilha para HTML
+      run: |
+        pip install pandas xlrd jinja2
+        python convert_results.py
+
+    - name: Deploy para GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public # Pasta criada pelo script Python
+
+    - name: Upload de Resultados
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: relatorio-testes
+        path: |
+          target/*.xls

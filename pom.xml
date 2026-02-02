@@ -1,0 +1,91 @@
+<project
+    xmlns = "http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>br.com.cpqd</groupId>
+    <artifactId>webservices-tests</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>webservices-tests</name>
+    <url>http://maven.apache.org</url>
+    <repositories>
+        <repository>
+           <id>cpqd-release</id>
+           <url>https://artifactory.cpqd.com.br:443/artifactory/cpqd-release/</url>
+         </repository>
+          <repository>
+           <id>cpqd-thirdparty</id>
+           <url>https://artifactory.cpqd.com.br:443/artifactory/cpqd-thirdparty/</url>
+         </repository>        
+        <repository>
+           <id>proxy-smartbear</id>
+           <url>https://artifactory.cpqd.com.br/artifactory/proxy-smartbear/</url>
+         </repository>     
+     </repositories>
+      <distributionManagement>
+       <repository>
+          <id>distribution.repo</id>
+          <name>CPqD Release Repository</name>
+          <url>https://artifactory.cpqd.com.br/artifactory/cpqd-release</url>
+       </repository>
+       <snapshotRepository>
+          <id>distribution.repo</id>
+          <name>CPqD Snapshot Repository</name>
+          <url>https://artifactory.cpqd.com.br/artifactory/cpqd-snapshot/</url>
+          <uniqueVersion>false</uniqueVersion>
+       </snapshotRepository>
+    </distributionManagement>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+        <dependency>
+            <groupId>jexcelapi</groupId>
+            <artifactId>jexcelapi</artifactId>
+            <version>2.6.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.ws.security</groupId>
+            <artifactId>wss4j</artifactId>
+            <version>1.6.19</version>
+        </dependency>
+        <dependency>
+            <groupId>com.smartbear.soapui</groupId>               
+            <artifactId>soapui</artifactId>
+            <version>5.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+        <dependency>
+            <groupId>xmlunit</groupId>
+              <artifactId>xmlunit</artifactId>
+              <version>1.5</version>
+        </dependency>        
+        <dependency>
+              <groupId>com.oracle.jdbc</groupId>
+              <artifactId>ojdbc7</artifactId>
+              <version>12.1.0.2</version>
+        </dependency>
+		<dependency>
+			  <groupId>org.apache.xmlbeans</groupId>
+			  <artifactId>xmlbeans</artifactId>
+              <version>2.6.0</version>
+        </dependency>
+        <dependency>
+    <groupId>com.fifesoft</groupId>
+    <artifactId>rsyntaxtextarea</artifactId>
+    <version>2.5.0</version>
+</dependency>	
+    </dependencies>
+</project>

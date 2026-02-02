@@ -1,0 +1,51 @@
+<settings>
+    <localRepository>/tmp/.m2/repository</localRepository>
+    <mirrors>
+        <mirror>
+            <id>distribution.repo</id>    <!-- deve ser o mesmo que o id do repositorio no pom.xml -->
+            <name>CPqD Group</name>
+            <url>https://cnexus.cpqd.com.br/content/groups/cpqd-group</url>
+            <mirrorOf>*</mirrorOf>
+        </mirror>
+    </mirrors>
+    <servers>
+        <server>
+            <id>distribution.repo</id>    <!-- deve ser o mesmo que o id do repositorio no pom.xml -->
+            <configuration>
+                <wagonProvider>httpclient</wagonProvider>
+            </configuration>
+        </server>
+    </servers>
+    <profiles>
+        <profile>
+            <id>repo-proxy</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <repositories>
+                <repository>
+                    <id>cpqd-repository</id>
+                    <url>https://cnexus.cpqd.com.br/content/groups/cpqd-group</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>cpqd-plugins</id>
+                    <url>https://cnexus.cpqd.com.br/content/groups/cpqd-group</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+</settings>

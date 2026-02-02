@@ -1,0 +1,11 @@
+﻿{
+  "agentId": 2,
+  "agentName": "CPQD86PS954",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelinesghubeus11.actions.githubusercontent.com/ljuGcyO3xwWuZXALpWqnlDER4dNzGpOgQqRwBbJW879UQkWta8/",
+  "gitHubUrl": "https://github.com/fkiyoshim/webservices",
+  "workFolder": "_work",
+  "useV2Flow": true,
+  "serverUrlV2": "https://broker.actions.githubusercontent.com/"
+}

@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "fkiyoshim/webservices",
+  "pipelineDirectory": "webservices",
+  "workspaceDirectory": "webservices\\webservices",
+  "repositories": {
+    "fkiyoshim/webservices": {
+      "repositoryPath": "webservices\\webservices",
+      "lastRunOn": "01/31/2026 13:02:01 -03:00"
+    }
+  },
+  "lastRunOn": "01/31/2026 15:22:27 -03:00"
+}

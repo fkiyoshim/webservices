@@ -1,0 +1,4010 @@
+[2026-01-31 16:17:06Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:06Z INFO HostContext] Well known config file 'Credentials': 'C:\AutomacaoWS\webservices\actions-runner\.credentials'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:06Z INFO HostContext] Well known config file 'Runner': 'C:\AutomacaoWS\webservices\actions-runner\.runner'
+[2026-01-31 16:17:06Z INFO Worker] Version: 2.331.0
+[2026-01-31 16:17:06Z INFO Worker] Commit: 39f6c643d3032f8795fa71f1482731ca90c8e038
+[2026-01-31 16:17:06Z INFO Worker] Culture: pt-BR
+[2026-01-31 16:17:06Z INFO Worker] UI Culture: pt-BR
+[2026-01-31 16:17:06Z INFO Worker] Waiting to receive the job message from the channel.
+[2026-01-31 16:17:06Z INFO ProcessChannel] Receiving message of length 19997, with hash 'ed83818168f2169b57a2bcafaecf29bef2b1c23e7b9823df093117cabdeea973'
+[2026-01-31 16:17:06Z INFO Worker] Message received.
+[2026-01-31 16:17:06Z INFO Worker] Job message:
+ {
+  "fileTable": [
+    ".github/workflows/main.yml"
+  ],
+  "mask": [
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    }
+  ],
+  "steps": [
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/checkout",
+        "ref": "v4",
+        "repositoryType": "GitHub"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 13,
+        "col": 13,
+        "lit": "Checkout do Código"
+      },
+      "contextName": "__actions_checkout",
+      "condition": "success()",
+      "id": "29439619-c3f3-49ef-ad28-3b0825574241",
+      "name": "__actions_checkout"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 16,
+        "col": 13,
+        "lit": "Executar Maven Test"
+      },
+      "contextName": "__run",
+      "environment": {
+        "type": 2,
+        "file": 1,
+        "line": 21,
+        "col": 9,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 21,
+              "col": 9,
+              "lit": "ARTIFACTORY_USER"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 21,
+              "col": 27,
+              "expr": "secrets.ARTIFACTORY_USER"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 22,
+              "col": 9,
+              "lit": "ARTIFACTORY_TOKEN"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 22,
+              "col": 28,
+              "expr": "secrets.ARTIFACTORY_TOKEN"
+            }
+          }
+        ]
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 19,
+              "col": 12,
+              "lit": "mvn clean test"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "e4dd83fa-723c-4ab4-92b7-6e722614d432",
+      "name": "__run"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/upload-artifact",
+        "ref": "v4",
+        "repositoryType": "GitHub"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 24,
+        "col": 13,
+        "lit": "Upload de Resultados"
+      },
+      "contextName": "__actions_upload-artifact",
+      "inputs": {
+        "type": 2,
+        "file": 1,
+        "line": 28,
+        "col": 9,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 28,
+              "col": 9,
+              "lit": "name"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 28,
+              "col": 15,
+              "lit": "relatorio-testes"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 29,
+              "col": 9,
+              "lit": "path"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 29,
+              "col": 15,
+              "lit": "target/*.xls\ntarget/*.log"
+            }
+          }
+        ]
+      },
+      "condition": "always()",
+      "id": "1d82a7c6-8e53-4e79-bcb1-eefab42688d2",
+      "name": "__actions_upload-artifact"
+    }
+  ],
+  "variables": {
+    "Actions.EnableHttpRedirects": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode12Action": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode16Action": {
+      "value": "true"
+    },
+    "DistributedTask.AllowRunnerContainerHooks": {
+      "value": "true"
+    },
+    "DistributedTask.DeprecateStepOutputCommands": {
+      "value": "true"
+    },
+    "DistributedTask.DetailUntarFailure": {
+      "value": "true"
+    },
+    "DistributedTask.EnableCompositeActions": {
+      "value": "true"
+    },
+    "DistributedTask.EnableJobServerQueueTelemetry": {
+      "value": "true"
+    },
+    "DistributedTask.EnhancedAnnotations": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode16": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode20": {
+      "value": "true"
+    },
+    "DistributedTask.LogTemplateErrorsAsDebugMessages": {
+      "value": "true"
+    },
+    "DistributedTask.MarkJobAsFailedOnWorkerCrash": {
+      "value": "true"
+    },
+    "DistributedTask.NewActionMetadata": {
+      "value": "true"
+    },
+    "DistributedTask.UploadStepSummary": {
+      "value": "true"
+    },
+    "DistributedTask.UseActionArchiveCache": {
+      "value": "true"
+    },
+    "DistributedTask.UseWhich2": {
+      "value": "true"
+    },
+    "RunService.FixEmbeddedIssues": {
+      "value": "true"
+    },
+    "actions_add_check_run_id_to_job_context": {
+      "value": "true"
+    },
+    "actions_container_action_runner_temp": {
+      "value": "true"
+    },
+    "actions_display_helpful_actions_download_errors": {
+      "value": "true"
+    },
+    "actions_runner_compare_workflow_parser": {
+      "value": "false"
+    },
+    "actions_set_orchestration_id_env_for_actions": {
+      "value": "true"
+    },
+    "actions_skip_retry_complete_job_upon_known_errors": {
+      "value": "true"
+    },
+    "actions_uses_cache_service_v2": {
+      "value": "true"
+    },
+    "github_token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.from_run_service": {
+      "value": "true"
+    },
+    "system.github.job": {
+      "value": "run-tests"
+    },
+    "system.github.launch_endpoint": {
+      "value": "https://launch.actions.githubusercontent.com"
+    },
+    "system.github.results_endpoint": {
+      "value": "https://results-receiver.actions.githubusercontent.com/"
+    },
+    "system.github.results_upload_with_sdk": {
+      "value": "true"
+    },
+    "system.github.token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.github.token.permissions": {
+      "value": "{\"Contents\":\"read\",\"Metadata\":\"read\",\"Packages\":\"read\"}"
+    },
+    "system.orchestrationId": {
+      "value": "5977fd17-7fab-432d-8fcc-25745a1992cd.run-tests.__default"
+    },
+    "system.phaseDisplayName": {
+      "value": "run-tests"
+    },
+    "system.runner.lowdiskspacethreshold": {
+      "value": "100"
+    },
+    "system.runnerEnvironment": {
+      "value": "self-hosted"
+    },
+    "system.runnerGroupName": {
+      "value": "Default"
+    }
+  },
+  "messageType": "RunnerJobRequest",
+  "plan": {
+    "scopeIdentifier": "00000000-0000-0000-0000-000000000000",
+    "planType": "actions",
+    "version": 0,
+    "planId": "5977fd17-7fab-432d-8fcc-25745a1992cd",
+    "planGroup": null,
+    "artifactUri": null,
+    "artifactLocation": null,
+    "definition": null,
+    "owner": null
+  },
+  "timeline": {
+    "id": "5977fd17-7fab-432d-8fcc-25745a1992cd",
+    "changeId": 0,
+    "location": null
+  },
+  "jobId": "45015cb4-f244-5cc2-b6d4-a368746501d8",
+  "jobDisplayName": "run-tests",
+  "jobName": "__default",
+  "requestId": 0,
+  "lockedUntil": "0001-01-01T00:00:00",
+  "resources": {
+    "endpoints": [
+      {
+        "data": {
+          "ServerId": "",
+          "ServerName": "",
+          "CacheServerUrl": "https://artifactcache.actions.githubusercontent.com/ljuGcyO3xwWuZXALpWqnlDER4dNzGpOgQqRwBbJW879UQkWta8/",
+          "FeedStreamUrl": "wss://results-receiver.actions.githubusercontent.com/_ws/ingest.sock",
+          "ResultsServiceUrl": "https://results-receiver.actions.githubusercontent.com/",
+          "PipelinesServiceUrl": "https://pipelinesghubeus11.actions.githubusercontent.com/ljuGcyO3xwWuZXALpWqnlDER4dNzGpOgQqRwBbJW879UQkWta8/",
+          "GenerateIdTokenUrl": "",
+          "ConnectivityChecks": "[\"https://broker.actions.githubusercontent.com/health\",\"https://token.actions.githubusercontent.com/ready\",\"https://run.actions.githubusercontent.com/health\"]"
+        },
+        "name": "SystemVssConnection",
+        "url": "https://run-actions-1-azure-eastus.actions.githubusercontent.com/13/",
+        "authorization": {
+          "parameters": {
+            "AccessToken": "***"
+          },
+          "scheme": "OAuth"
+        },
+        "isShared": false,
+        "isReady": true
+      }
+    ]
+  },
+  "contextData": {
+    "github": {
+      "t": 2,
+      "d": [
+        {
+          "k": "ref",
+          "v": "refs/heads/main"
+        },
+        {
+          "k": "sha",
+          "v": "38c6001ceaf23d3df1d74dc5fb7e74a39c37197c"
+        },
+        {
+          "k": "repository",
+          "v": "fkiyoshim/webservices"
+        },
+        {
+          "k": "repository_owner",
+          "v": "fkiyoshim"
+        },
+        {
+          "k": "repository_owner_id",
+          "v": "56682923"
+        },
+        {
+          "k": "repositoryUrl",
+          "v": "git://github.com/fkiyoshim/webservices.git"
+        },
+        {
+          "k": "run_id",
+          "v": "21547263816"
+        },
+        {
+          "k": "run_number",
+          "v": "7"
+        },
+        {
+          "k": "retention_days",
+          "v": "90"
+        },
+        {
+          "k": "run_attempt",
+          "v": "1"
+        },
+        {
+          "k": "artifact_cache_size_limit",
+          "v": "10"
+        },
+        {
+          "k": "repository_visibility",
+          "v": "public"
+        },
+        {
+          "k": "actor_id",
+          "v": "56682923"
+        },
+        {
+          "k": "actor",
+          "v": "fkiyoshim"
+        },
+        {
+          "k": "workflow",
+          "v": "Testes Automáticos WebServices (Windows Local)"
+        },
+        {
+          "k": "head_ref",
+          "v": ""
+        },
+        {
+          "k": "base_ref",
+          "v": ""
+        },
+        {
+          "k": "event_name",
+          "v": "push"
+        },
+        {
+          "k": "server_url",
+          "v": "https://github.com"
+        },
+        {
+          "k": "api_url",
+          "v": "https://api.github.com"
+        },
+        {
+          "k": "graphql_url",
+          "v": "https://api.github.com/graphql"
+        },
+        {
+          "k": "ref_name",
+          "v": "main"
+        },
+        {
+          "k": "ref_protected",
+          "v": false
+        },
+        {
+          "k": "ref_type",
+          "v": "branch"
+        },
+        {
+          "k": "secret_source",
+          "v": "Actions"
+        },
+        {
+          "k": "event",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "after",
+                "v": "38c6001ceaf23d3df1d74dc5fb7e74a39c37197c"
+              },
+              {
+                "k": "base_ref",
+                "v": null
+              },
+              {
+                "k": "before",
+                "v": "88f889bf35058e6e60fd6a84c11e23fe42c44396"
+              },
+              {
+                "k": "commits",
+                "v": {
+                  "t": 1,
+                  "a": [
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "fkiyoshi@cpqd.com.br"
+                              },
+                              {
+                                "k": "name",
+                                "v": "fkiyoshim"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "fkiyoshi@cpqd.com.br"
+                              },
+                              {
+                                "k": "name",
+                                "v": "fkiyoshim"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "38c6001ceaf23d3df1d74dc5fb7e74a39c37197c"
+                        },
+                        {
+                          "k": "message",
+                          "v": "Alteando pom.xml"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2026-01-31T13:16:53-03:00"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "79bcb769324da727f85e8d13489799b24a2fc240"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/fkiyoshim/webservices/commit/38c6001ceaf23d3df1d74dc5fb7e74a39c37197c"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "compare",
+                "v": "https://github.com/fkiyoshim/webservices/compare/88f889bf3505...38c6001ceaf2"
+              },
+              {
+                "k": "created",
+                "v": false
+              },
+              {
+                "k": "deleted",
+                "v": false
+              },
+              {
+                "k": "forced",
+                "v": false
+              },
+              {
+                "k": "head_commit",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "author",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "fkiyoshi@cpqd.com.br"
+                          },
+                          {
+                            "k": "name",
+                            "v": "fkiyoshim"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "committer",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "fkiyoshi@cpqd.com.br"
+                          },
+                          {
+                            "k": "name",
+                            "v": "fkiyoshim"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "distinct",
+                      "v": true
+                    },
+                    {
+                      "k": "id",
+                      "v": "38c6001ceaf23d3df1d74dc5fb7e74a39c37197c"
+                    },
+                    {
+                      "k": "message",
+                      "v": "Alteando pom.xml"
+                    },
+                    {
+                      "k": "timestamp",
+                      "v": "2026-01-31T13:16:53-03:00"
+                    },
+                    {
+                      "k": "tree_id",
+                      "v": "79bcb769324da727f85e8d13489799b24a2fc240"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/fkiyoshim/webservices/commit/38c6001ceaf23d3df1d74dc5fb7e74a39c37197c"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "pusher",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "email",
+                      "v": "56682923+fkiyoshim@users.noreply.github.com"
+                    },
+                    {
+                      "k": "name",
+                      "v": "fkiyoshim"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "ref",
+                "v": "refs/heads/main"
+              },
+              {
+                "k": "repository",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "allow_forking",
+                      "v": true
+                    },
+                    {
+                      "k": "archive_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/{archive_format}{/ref}"
+                    },
+                    {
+                      "k": "archived",
+                      "v": false
+                    },
+                    {
+                      "k": "assignees_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/assignees{/user}"
+                    },
+                    {
+                      "k": "blobs_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/git/blobs{/sha}"
+                    },
+                    {
+                      "k": "branches_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/branches{/branch}"
+                    },
+                    {
+                      "k": "clone_url",
+                      "v": "https://github.com/fkiyoshim/webservices.git"
+                    },
+                    {
+                      "k": "collaborators_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/collaborators{/collaborator}"
+                    },
+                    {
+                      "k": "comments_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/comments{/number}"
+                    },
+                    {
+                      "k": "commits_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/commits{/sha}"
+                    },
+                    {
+                      "k": "compare_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/compare/{base}...{head}"
+                    },
+                    {
+                      "k": "contents_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/contents/{+path}"
+                    },
+                    {
+                      "k": "contributors_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/contributors"
+                    },
+                    {
+                      "k": "created_at",
+                      "v": 1769872132.0
+                    },
+                    {
+                      "k": "default_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "deployments_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/deployments"
+                    },
+                    {
+                      "k": "description",
+                      "v": "Estudo pipeline testes webServices"
+                    },
+                    {
+                      "k": "disabled",
+                      "v": false
+                    },
+                    {
+                      "k": "downloads_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/downloads"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/events"
+                    },
+                    {
+                      "k": "fork",
+                      "v": false
+                    },
+                    {
+                      "k": "forks",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/forks"
+                    },
+                    {
+                      "k": "full_name",
+                      "v": "fkiyoshim/webservices"
+                    },
+                    {
+                      "k": "git_commits_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/git/commits{/sha}"
+                    },
+                    {
+                      "k": "git_refs_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/git/refs{/sha}"
+                    },
+                    {
+                      "k": "git_tags_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/git/tags{/sha}"
+                    },
+                    {
+                      "k": "git_url",
+                      "v": "git://github.com/fkiyoshim/webservices.git"
+                    },
+                    {
+                      "k": "has_discussions",
+                      "v": false
+                    },
+                    {
+                      "k": "has_downloads",
+                      "v": true
+                    },
+                    {
+                      "k": "has_issues",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pages",
+                      "v": false
+                    },
+                    {
+                      "k": "has_projects",
+                      "v": true
+                    },
+                    {
+                      "k": "has_wiki",
+                      "v": true
+                    },
+                    {
+                      "k": "homepage",
+                      "v": null
+                    },
+                    {
+                      "k": "hooks_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/hooks"
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/fkiyoshim/webservices"
+                    },
+                    {
+                      "k": "id",
+                      "v": 1146717281.0
+                    },
+                    {
+                      "k": "is_template",
+                      "v": false
+                    },
+                    {
+                      "k": "issue_comment_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/issues/comments{/number}"
+                    },
+                    {
+                      "k": "issue_events_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/issues/events{/number}"
+                    },
+                    {
+                      "k": "issues_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/issues{/number}"
+                    },
+                    {
+                      "k": "keys_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/keys{/key_id}"
+                    },
+                    {
+                      "k": "labels_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/labels{/name}"
+                    },
+                    {
+                      "k": "language",
+                      "v": "TypeScript"
+                    },
+                    {
+                      "k": "languages_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/languages"
+                    },
+                    {
+                      "k": "license",
+                      "v": null
+                    },
+                    {
+                      "k": "master_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "merges_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/merges"
+                    },
+                    {
+                      "k": "milestones_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/milestones{/number}"
+                    },
+                    {
+                      "k": "mirror_url",
+                      "v": null
+                    },
+                    {
+                      "k": "name",
+                      "v": "webservices"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "R_kgDORFmEYQ"
+                    },
+                    {
+                      "k": "notifications_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/notifications{?since,all,participating}"
+                    },
+                    {
+                      "k": "open_issues",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "open_issues_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "owner",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "avatar_url",
+                            "v": "https://avatars.githubusercontent.com/u/56682923?v=4"
+                          },
+                          {
+                            "k": "email",
+                            "v": "56682923+fkiyoshim@users.noreply.github.com"
+                          },
+                          {
+                            "k": "events_url",
+                            "v": "https://api.github.com/users/fkiyoshim/events{/privacy}"
+                          },
+                          {
+                            "k": "followers_url",
+                            "v": "https://api.github.com/users/fkiyoshim/followers"
+                          },
+                          {
+                            "k": "following_url",
+                            "v": "https://api.github.com/users/fkiyoshim/following{/other_user}"
+                          },
+                          {
+                            "k": "gists_url",
+                            "v": "https://api.github.com/users/fkiyoshim/gists{/gist_id}"
+                          },
+                          {
+                            "k": "gravatar_id",
+                            "v": ""
+                          },
+                          {
+                            "k": "html_url",
+                            "v": "https://github.com/fkiyoshim"
+                          },
+                          {
+                            "k": "id",
+                            "v": 56682923.0
+                          },
+                          {
+                            "k": "login",
+                            "v": "fkiyoshim"
+                          },
+                          {
+                            "k": "name",
+                            "v": "fkiyoshim"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "MDQ6VXNlcjU2NjgyOTIz"
+                          },
+                          {
+                            "k": "organizations_url",
+                            "v": "https://api.github.com/users/fkiyoshim/orgs"
+                          },
+                          {
+                            "k": "received_events_url",
+                            "v": "https://api.github.com/users/fkiyoshim/received_events"
+                          },
+                          {
+                            "k": "repos_url",
+                            "v": "https://api.github.com/users/fkiyoshim/repos"
+                          },
+                          {
+                            "k": "site_admin",
+                            "v": false
+                          },
+                          {
+                            "k": "starred_url",
+                            "v": "https://api.github.com/users/fkiyoshim/starred{/owner}{/repo}"
+                          },
+                          {
+                            "k": "subscriptions_url",
+                            "v": "https://api.github.com/users/fkiyoshim/subscriptions"
+                          },
+                          {
+                            "k": "type",
+                            "v": "User"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/users/fkiyoshim"
+                          },
+                          {
+                            "k": "user_view_type",
+                            "v": "public"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "private",
+                      "v": false
+                    },
+                    {
+                      "k": "pulls_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/pulls{/number}"
+                    },
+                    {
+                      "k": "pushed_at",
+                      "v": 1769876221.0
+                    },
+                    {
+                      "k": "releases_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/releases{/id}"
+                    },
+                    {
+                      "k": "size",
+                      "v": 182540.0
+                    },
+                    {
+                      "k": "ssh_url",
+                      "v": "git@github.com:fkiyoshim/webservices.git"
+                    },
+                    {
+                      "k": "stargazers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/stargazers"
+                    },
+                    {
+                      "k": "statuses_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/statuses/{sha}"
+                    },
+                    {
+                      "k": "subscribers_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/subscribers"
+                    },
+                    {
+                      "k": "subscription_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/subscription"
+                    },
+                    {
+                      "k": "svn_url",
+                      "v": "https://github.com/fkiyoshim/webservices"
+                    },
+                    {
+                      "k": "tags_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/tags"
+                    },
+                    {
+                      "k": "teams_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/teams"
+                    },
+                    {
+                      "k": "topics",
+                      "v": {
+                        "t": 1
+                      }
+                    },
+                    {
+                      "k": "trees_url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices/git/trees{/sha}"
+                    },
+                    {
+                      "k": "updated_at",
+                      "v": "2026-01-31T16:08:53Z"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/repos/fkiyoshim/webservices"
+                    },
+                    {
+                      "k": "visibility",
+                      "v": "public"
+                    },
+                    {
+                      "k": "watchers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "watchers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "web_commit_signoff_required",
+                      "v": false
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "sender",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "avatar_url",
+                      "v": "https://avatars.githubusercontent.com/u/56682923?v=4"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/users/fkiyoshim/events{/privacy}"
+                    },
+                    {
+                      "k": "followers_url",
+                      "v": "https://api.github.com/users/fkiyoshim/followers"
+                    },
+                    {
+                      "k": "following_url",
+                      "v": "https://api.github.com/users/fkiyoshim/following{/other_user}"
+                    },
+                    {
+                      "k": "gists_url",
+                      "v": "https://api.github.com/users/fkiyoshim/gists{/gist_id}"
+                    },
+                    {
+                      "k": "gravatar_id",
+                      "v": ""
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/fkiyoshim"
+                    },
+                    {
+                      "k": "id",
+                      "v": 56682923.0
+                    },
+                    {
+                      "k": "login",
+                      "v": "fkiyoshim"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "MDQ6VXNlcjU2NjgyOTIz"
+                    },
+                    {
+                      "k": "organizations_url",
+                      "v": "https://api.github.com/users/fkiyoshim/orgs"
+                    },
+                    {
+                      "k": "received_events_url",
+                      "v": "https://api.github.com/users/fkiyoshim/received_events"
+                    },
+                    {
+                      "k": "repos_url",
+                      "v": "https://api.github.com/users/fkiyoshim/repos"
+                    },
+                    {
+                      "k": "site_admin",
+                      "v": false
+                    },
+                    {
+                      "k": "starred_url",
+                      "v": "https://api.github.com/users/fkiyoshim/starred{/owner}{/repo}"
+                    },
+                    {
+                      "k": "subscriptions_url",
+                      "v": "https://api.github.com/users/fkiyoshim/subscriptions"
+                    },
+                    {
+                      "k": "type",
+                      "v": "User"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/users/fkiyoshim"
+                    },
+                    {
+                      "k": "user_view_type",
+                      "v": "public"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "k": "workflow_ref",
+          "v": "fkiyoshim/webservices/.github/workflows/main.yml@refs/heads/main"
+        },
+        {
+          "k": "workflow_sha",
+          "v": "38c6001ceaf23d3df1d74dc5fb7e74a39c37197c"
+        },
+        {
+          "k": "repository_id",
+          "v": "1146717281"
+        },
+        {
+          "k": "triggering_actor",
+          "v": "fkiyoshim"
+        }
+      ]
+    },
+    "inputs": {
+      "t": 2
+    },
+    "job": {
+      "t": 2,
+      "d": [
+        {
+          "k": "check_run_id",
+          "v": 62090517130.0
+        }
+      ]
+    },
+    "matrix": null,
+    "needs": {
+      "t": 2
+    },
+    "strategy": {
+      "t": 2,
+      "d": [
+        {
+          "k": "fail-fast",
+          "v": true
+        },
+        {
+          "k": "job-index",
+          "v": 0.0
+        },
+        {
+          "k": "job-total",
+          "v": 1.0
+        },
+        {
+          "k": "max-parallel",
+          "v": 1.0
+        }
+      ]
+    },
+    "vars": {
+      "t": 2
+    }
+  },
+  "billingOwnerId": "U_kgDOA2Dpqw"
+}
+[2026-01-31 16:17:06Z INFO JobRunner] Job ID 45015cb4-f244-5cc2-b6d4-a368746501d8
+[2026-01-31 16:17:06Z INFO ConfigurationStore] currentAssemblyLocation: C:\AutomacaoWS\webservices\actions-runner\bin\Runner.Worker.dll
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:06Z INFO ConfigurationStore] binPath: C:\AutomacaoWS\webservices\actions-runner\bin
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:06Z INFO ConfigurationStore] RootFolder: C:\AutomacaoWS\webservices\actions-runner
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:06Z INFO HostContext] Well known config file 'Runner': 'C:\AutomacaoWS\webservices\actions-runner\.runner'
+[2026-01-31 16:17:06Z INFO ConfigurationStore] ConfigFilePath: C:\AutomacaoWS\webservices\actions-runner\.runner
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:06Z INFO HostContext] Well known config file 'MigratedRunner': 'C:\AutomacaoWS\webservices\actions-runner\.runner_migrated'
+[2026-01-31 16:17:06Z INFO ConfigurationStore] MigratedConfigFilePath: C:\AutomacaoWS\webservices\actions-runner\.runner_migrated
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:06Z INFO HostContext] Well known config file 'Credentials': 'C:\AutomacaoWS\webservices\actions-runner\.credentials'
+[2026-01-31 16:17:06Z INFO ConfigurationStore] CredFilePath: C:\AutomacaoWS\webservices\actions-runner\.credentials
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:06Z INFO HostContext] Well known config file 'MigratedCredentials': 'C:\AutomacaoWS\webservices\actions-runner\.credentials_migrated'
+[2026-01-31 16:17:06Z INFO ConfigurationStore] MigratedCredFilePath: C:\AutomacaoWS\webservices\actions-runner\.credentials_migrated
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:06Z INFO HostContext] Well known config file 'Service': 'C:\AutomacaoWS\webservices\actions-runner\.service'
+[2026-01-31 16:17:06Z INFO ConfigurationStore] ServiceConfigFilePath: C:\AutomacaoWS\webservices\actions-runner\.service
+[2026-01-31 16:17:06Z INFO ConfigurationStore] Read setting file: 396 chars
+[2026-01-31 16:17:06Z INFO JobRunner] Initializing launch client
+[2026-01-31 16:17:06Z INFO JobServerQueue] Initializing results client
+[2026-01-31 16:17:06Z INFO ResultServer] Creating websocket client ...wss://results-receiver.actions.githubusercontent.com/_ws/ingest.sock
+[2026-01-31 16:17:06Z INFO ResultServer] Attempting to start websocket client with delay 00:00:00.
+[2026-01-31 16:17:06Z INFO JobServerQueue] Start process web console line queue.
+[2026-01-31 16:17:06Z INFO JobServerQueue] Start process file upload queue.
+[2026-01-31 16:17:06Z INFO JobServerQueue] Start results file upload queue.
+[2026-01-31 16:17:06Z INFO JobServerQueue] Starting results-based upload queue...
+[2026-01-31 16:17:06Z INFO JobServerQueue] Start process timeline update queue.
+[2026-01-31 16:17:06Z INFO ExecutionContext] Initializing Job context
+[2026-01-31 16:17:06Z INFO ExecutionContext] Initialize GitHub context
+[2026-01-31 16:17:06Z INFO ExecutionContext] Initialize Env context
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Diag': 'C:\AutomacaoWS\webservices\actions-runner\_diag'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Diag': 'C:\AutomacaoWS\webservices\actions-runner\_diag'
+[2026-01-31 16:17:06Z INFO JobRunner] Starting the job execution context.
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:06Z INFO JobRunner] Validating directory permissions for: 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Tools': 'C:\AutomacaoWS\webservices\actions-runner\_work\_tool'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Temp': 'C:\AutomacaoWS\webservices\actions-runner\_work\_temp'
+[2026-01-31 16:17:06Z INFO JobRunner] Getting job extension.
+[2026-01-31 16:17:06Z INFO JobRunner] Initialize job. Getting all job steps.
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Diag': 'C:\AutomacaoWS\webservices\actions-runner\_diag'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Diag': 'C:\AutomacaoWS\webservices\actions-runner\_diag'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:06Z INFO HostContext] Well known config file 'Credentials': 'C:\AutomacaoWS\webservices\actions-runner\.credentials'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:06Z INFO HostContext] Well known config file 'SetupInfo': 'C:\AutomacaoWS\webservices\actions-runner\.setup_info'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:06Z INFO PipelineDirectoryManager] Loading tracking config if exists: C:\AutomacaoWS\webservices\actions-runner\_work\_PipelineMapping\fkiyoshim/webservices\PipelineFolder.json
+[2026-01-31 16:17:06Z INFO PipelineDirectoryManager] Updating job run properties.
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:06Z INFO JobExtension] Downloading actions
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:06Z INFO HostContext] Well known directory 'Actions': 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions'
+[2026-01-31 16:17:07Z INFO Worker] Listening for cancel message from the channel.
+[2026-01-31 16:17:07Z INFO Worker] Waiting for the job to complete or for a cancel message from the channel.
+[2026-01-31 16:17:08Z INFO ResultServer] Successfully started websocket client.
+[2026-01-31 16:17:08Z INFO JobServerQueue] Job timeline record has been updated for the first time.
+[2026-01-31 16:17:08Z INFO JobServerQueue] Try to append 1 batches web console lines for record '416b1126-3eb0-48ba-9052-5aea344f9409', success rate: 1/1.
+[2026-01-31 16:17:08Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:08Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:08Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:08Z INFO HostContext] Well known directory 'Actions': 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions'
+[2026-01-31 16:17:08Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:08Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:08Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:08Z INFO HostContext] Well known directory 'Actions': 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions'
+[2026-01-31 16:17:08Z INFO ActionManager] Save archive 'https://api.github.com/repos/actions/checkout/zipball/34e114876b0b11c390a56381ad16ebd13914f8d5' into C:\AutomacaoWS\webservices\actions-runner\_work\_actions\_temp_31298959-e18a-4cb1-aa78-000e6ce67e98\d03ef4da-1c19-47d3-8672-b2ec824372c9.zip.
+[2026-01-31 16:17:08Z INFO JobServerQueue] Try to append 1 batches web console lines for record '416b1126-3eb0-48ba-9052-5aea344f9409', success rate: 1/1.
+[2026-01-31 16:17:08Z INFO ActionManager] Request URL: https://api.github.com/repos/actions/checkout/zipball/34e114876b0b11c390a56381ad16ebd13914f8d5 X-GitHub-Request-Id: E7B2:26101A:D2A87:21791C:697E2B04 Http Status: OK
+[2026-01-31 16:17:11Z INFO ActionManager] Finished getting action repository.
+[2026-01-31 16:17:11Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:11Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:11Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:11Z INFO HostContext] Well known directory 'Actions': 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions'
+[2026-01-31 16:17:11Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:11Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:11Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:11Z INFO HostContext] Well known directory 'Actions': 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions'
+[2026-01-31 16:17:11Z INFO ActionManager] Save archive 'https://api.github.com/repos/actions/upload-artifact/zipball/ea165f8d65b6e75b540449e92b4886f43607fa02' into C:\AutomacaoWS\webservices\actions-runner\_work\_actions\_temp_c8381300-24d4-42e9-9a1b-27443972432c\859edc83-a73f-46ed-80af-4041fec5564f.zip.
+[2026-01-31 16:17:11Z INFO JobServerQueue] Try to append 1 batches web console lines for record '416b1126-3eb0-48ba-9052-5aea344f9409', success rate: 1/1.
+[2026-01-31 16:17:12Z INFO ActionManager] Request URL: https://api.github.com/repos/actions/upload-artifact/zipball/ea165f8d65b6e75b540449e92b4886f43607fa02 X-GitHub-Request-Id: E7B5:4E7DE:D6F39:21BEE8:697E2B07 Http Status: OK
+[2026-01-31 16:17:17Z INFO ActionManager] Finished getting action repository.
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Actions': 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions'
+[2026-01-31 16:17:17Z INFO ActionManifestManagerLegacy] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "output-definition",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "run-step",
+  "uses-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "boolean-steps-context",
+  "step-env",
+  "step-if",
+  "step-with"
+]
+[2026-01-31 16:17:17Z INFO ActionManifestManager] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "output-definition",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "run-step",
+  "uses-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "boolean-steps-context",
+  "step-env",
+  "step-if",
+  "step-with"
+]
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Actions': 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions'
+[2026-01-31 16:17:17Z INFO ActionManifestManagerLegacy] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2026-01-31 16:17:17Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Actions': 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions'
+[2026-01-31 16:17:17Z INFO ActionManager] Load action that reference repository from 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions\actions\checkout\v4'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Actions': 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions'
+[2026-01-31 16:17:17Z INFO ActionManifestManagerLegacy] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2026-01-31 16:17:17Z INFO ActionManager] Action pre node.js file: N/A.
+[2026-01-31 16:17:17Z INFO ActionManager] Action node.js file: dist/index.js.
+[2026-01-31 16:17:17Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Actions': 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Actions': 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions'
+[2026-01-31 16:17:17Z INFO ActionManifestManagerLegacy] Ignore action property author.
+[2026-01-31 16:17:17Z INFO ActionManifestManagerLegacy] Loaded action.yml file: {
+  "name": "Upload a Build Artifact",
+  "description": "Upload a build artifact that can be used by subsequent workflow steps",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 5,
+          "col": 3,
+          "lit": "name"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 7,
+          "col": 14,
+          "lit": "artifact"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 8,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 11,
+          "col": 3,
+          "lit": "if-no-files-found"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 19,
+          "col": 14,
+          "lit": "warn"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 20,
+          "col": 3,
+          "lit": "retention-days"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 26,
+          "col": 3,
+          "lit": "compression-level"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 36,
+          "col": 14,
+          "lit": "6"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 37,
+          "col": 3,
+          "lit": "overwrite"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 42,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 43,
+          "col": 3,
+          "lit": "include-hidden-files"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 47,
+          "col": 14,
+          "lit": "false"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/upload/index.js",
+    "pre": null,
+    "post": null,
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2026-01-31 16:17:17Z INFO ActionManager] Action node.js file: dist/upload/index.js, no more preparation.
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Actions': 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions'
+[2026-01-31 16:17:17Z INFO ActionManager] Load action that reference repository from 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions\actions\upload-artifact\v4'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Actions': 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions'
+[2026-01-31 16:17:17Z INFO ActionManifestManagerLegacy] Ignore action property author.
+[2026-01-31 16:17:17Z INFO ActionManifestManagerLegacy] Loaded action.yml file: {
+  "name": "Upload a Build Artifact",
+  "description": "Upload a build artifact that can be used by subsequent workflow steps",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 5,
+          "col": 3,
+          "lit": "name"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 7,
+          "col": 14,
+          "lit": "artifact"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 8,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 11,
+          "col": 3,
+          "lit": "if-no-files-found"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 19,
+          "col": 14,
+          "lit": "warn"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 20,
+          "col": 3,
+          "lit": "retention-days"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 26,
+          "col": 3,
+          "lit": "compression-level"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 36,
+          "col": 14,
+          "lit": "6"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 37,
+          "col": 3,
+          "lit": "overwrite"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 42,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 43,
+          "col": 3,
+          "lit": "include-hidden-files"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 47,
+          "col": 14,
+          "lit": "false"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/upload/index.js",
+    "pre": null,
+    "post": null,
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2026-01-31 16:17:17Z INFO ActionManager] Action pre node.js file: N/A.
+[2026-01-31 16:17:17Z INFO ActionManager] Action node.js file: dist/upload/index.js.
+[2026-01-31 16:17:17Z INFO ActionManager] Action post node.js file: N/A.
+[2026-01-31 16:17:17Z INFO JobExtension] Adding .
+[2026-01-31 16:17:17Z INFO JobExtension] Adding .
+[2026-01-31 16:17:17Z INFO JobExtension] Adding .
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Diag': 'C:\AutomacaoWS\webservices\actions-runner\_diag'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Diag': 'C:\AutomacaoWS\webservices\actions-runner\_diag'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Diag': 'C:\AutomacaoWS\webservices\actions-runner\_diag'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Diag': 'C:\AutomacaoWS\webservices\actions-runner\_diag'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Diag': 'C:\AutomacaoWS\webservices\actions-runner\_diag'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Diag': 'C:\AutomacaoWS\webservices\actions-runner\_diag'
+[2026-01-31 16:17:17Z INFO JobServerQueue] Try to append 1 batches web console lines for record '416b1126-3eb0-48ba-9052-5aea344f9409', success rate: 1/1.
+[2026-01-31 16:17:17Z INFO JobExtension] Total accessible running process: 359.
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:17Z INFO JobExtension] Start checking server connectivity.
+[2026-01-31 16:17:17Z INFO JobExtension] Check server connectivity for https://broker.actions.githubusercontent.com/health.
+[2026-01-31 16:17:17Z INFO JobExtension] Check server connectivity for https://token.actions.githubusercontent.com/ready.
+[2026-01-31 16:17:17Z INFO JobExtension] Check server connectivity for https://run.actions.githubusercontent.com/health.
+[2026-01-31 16:17:17Z INFO JobExtension] Start checking service connectivity in background.
+[2026-01-31 16:17:17Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "setup_job",
+  "type": "runner",
+  "stage": "Pre",
+  "stepId": "416b1126-3eb0-48ba-9052-5aea344f9409",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 12,
+  "startTime": "2026-01-31T16:17:06.6756017Z",
+  "finishTime": "2026-01-31T16:17:17.8021723Z"
+}.
+[2026-01-31 16:17:17Z INFO JobRunner] Total job steps: 3.
+[2026-01-31 16:17:17Z INFO JobRunner] Run all job steps.
+[2026-01-31 16:17:17Z INFO StepsRunner] Processing step: DisplayName='Checkout do Código'
+[2026-01-31 16:17:17Z INFO StepsRunner] Evaluating: success()
+[2026-01-31 16:17:17Z INFO StepsRunner] Result: true
+[2026-01-31 16:17:17Z INFO StepsRunner] Starting the step.
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:17Z INFO StepsRunner] Which2: 'chcp'
+[2026-01-31 16:17:17Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2026-01-31 16:17:17Z INFO ProcessInvokerWrapper] Starting process:
+[2026-01-31 16:17:17Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2026-01-31 16:17:17Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-01-31 16:17:17Z INFO ProcessInvokerWrapper]   Working directory: 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:17Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-01-31 16:17:17Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-01-31 16:17:17Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-01-31 16:17:17Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-01-31 16:17:17Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-01-31 16:17:17Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-01-31 16:17:17Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-01-31 16:17:17Z INFO ProcessInvokerWrapper] Process started with process id 24440, waiting for process exit.
+[2026-01-31 16:17:17Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-31 16:17:17Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-31 16:17:17Z INFO ProcessInvokerWrapper] Finished process 24440 with exit code 0, and elapsed time 00:00:00.0999712.
+[2026-01-31 16:17:17Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Actions': 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions'
+[2026-01-31 16:17:17Z INFO ActionManager] Load action that reference repository from 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions\actions\checkout\v4'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Actions': 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions'
+[2026-01-31 16:17:17Z INFO ActionManifestManagerLegacy] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2026-01-31 16:17:17Z INFO ActionManager] Action pre node.js file: N/A.
+[2026-01-31 16:17:17Z INFO ActionManager] Action node.js file: dist/index.js.
+[2026-01-31 16:17:17Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2026-01-31 16:17:17Z INFO ExecutionContext] Reserve record order 5 to 8 for post job actions.
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Diag': 'C:\AutomacaoWS\webservices\actions-runner\_diag'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Diag': 'C:\AutomacaoWS\webservices\actions-runner\_diag'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Temp': 'C:\AutomacaoWS\webservices\actions-runner\_work\_temp'
+[2026-01-31 16:17:17Z INFO ExecutionContext] Write event payload to C:\AutomacaoWS\webservices\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-01-31 16:17:17Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:18Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:18Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:18Z INFO HostContext] Well known directory 'Temp': 'C:\AutomacaoWS\webservices\actions-runner\_work\_temp'
+[2026-01-31 16:17:18Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-01-31 16:17:18Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathFileCommand, Runner.Worker
+[2026-01-31 16:17:18Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvFileCommand, Runner.Worker
+[2026-01-31 16:17:18Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.CreateStepSummaryCommand, Runner.Worker
+[2026-01-31 16:17:18Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateFileCommand, Runner.Worker
+[2026-01-31 16:17:18Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputFileCommand, Runner.Worker
+[2026-01-31 16:17:18Z INFO ActionManifestManagerLegacy] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "fkiyoshim/webservices"
+}
+[2026-01-31 16:17:18Z INFO ActionManifestManagerLegacy] Input 'ref': default value evaluate result: ""
+[2026-01-31 16:17:18Z INFO ActionManifestManagerLegacy] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2026-01-31 16:17:18Z INFO ActionManifestManagerLegacy] Input 'ssh-key': default value evaluate result: ""
+[2026-01-31 16:17:18Z INFO ActionManifestManagerLegacy] Input 'ssh-known-hosts': default value evaluate result: ""
+[2026-01-31 16:17:18Z INFO ActionManifestManagerLegacy] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-31 16:17:18Z INFO ActionManifestManagerLegacy] Input 'ssh-user': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 51,
+  "col": 14,
+  "lit": "git"
+}
+[2026-01-31 16:17:18Z INFO ActionManifestManagerLegacy] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 54,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-31 16:17:18Z INFO ActionManifestManagerLegacy] Input 'path': default value evaluate result: ""
+[2026-01-31 16:17:18Z INFO ActionManifestManagerLegacy] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 59,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-31 16:17:18Z INFO ActionManifestManagerLegacy] Input 'filter': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 64,
+  "col": 14,
+  "lit": ""
+}
+[2026-01-31 16:17:18Z INFO ActionManifestManagerLegacy] Input 'sparse-checkout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 69,
+  "col": 14,
+  "lit": ""
+}
+[2026-01-31 16:17:18Z INFO ActionManifestManagerLegacy] Input 'sparse-checkout-cone-mode': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-31 16:17:18Z INFO ActionManifestManagerLegacy] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 76,
+  "col": 14,
+  "lit": "1"
+}
+[2026-01-31 16:17:18Z INFO ActionManifestManagerLegacy] Input 'fetch-tags': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 79,
+  "col": 14,
+  "lit": "false"
+}
+[2026-01-31 16:17:18Z INFO ActionManifestManagerLegacy] Input 'show-progress': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 82,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-31 16:17:18Z INFO ActionManifestManagerLegacy] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 85,
+  "col": 14,
+  "lit": "false"
+}
+[2026-01-31 16:17:18Z INFO ActionManifestManagerLegacy] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 94,
+  "col": 14,
+  "lit": "false"
+}
+[2026-01-31 16:17:18Z INFO ActionManifestManagerLegacy] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 97,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-31 16:17:18Z INFO ActionManifestManagerLegacy] Input 'github-server-url': default value evaluate result: ""
+[2026-01-31 16:17:18Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-01-31 16:17:18Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.InternalPluginSetRepoPathCommandExtension, Runner.Worker
+[2026-01-31 16:17:18Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvCommandExtension, Runner.Worker
+[2026-01-31 16:17:18Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputCommandExtension, Runner.Worker
+[2026-01-31 16:17:18Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateCommandExtension, Runner.Worker
+[2026-01-31 16:17:18Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathCommandExtension, Runner.Worker
+[2026-01-31 16:17:18Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMaskCommandExtension, Runner.Worker
+[2026-01-31 16:17:18Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMatcherCommandExtension, Runner.Worker
+[2026-01-31 16:17:18Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.RemoveMatcherCommandExtension, Runner.Worker
+[2026-01-31 16:17:18Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.WarningCommandExtension, Runner.Worker
+[2026-01-31 16:17:18Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.ErrorCommandExtension, Runner.Worker
+[2026-01-31 16:17:18Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.NoticeCommandExtension, Runner.Worker
+[2026-01-31 16:17:18Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.DebugCommandExtension, Runner.Worker
+[2026-01-31 16:17:18Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.GroupCommandExtension, Runner.Worker
+[2026-01-31 16:17:18Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EndGroupCommandExtension, Runner.Worker
+[2026-01-31 16:17:18Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EchoCommandExtension, Runner.Worker
+[2026-01-31 16:17:18Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-01-31 16:17:18Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-01-31 16:17:18Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-01-31 16:17:18Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-01-31 16:17:18Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-01-31 16:17:18Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-01-31 16:17:18Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-01-31 16:17:18Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-01-31 16:17:18Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-01-31 16:17:18Z INFO ActionCommandManager] Register action command extension for command error
+[2026-01-31 16:17:18Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-01-31 16:17:18Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-01-31 16:17:18Z INFO ActionCommandManager] Register action command extension for command group
+[2026-01-31 16:17:18Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-01-31 16:17:18Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-01-31 16:17:18Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:18Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:18Z INFO HostContext] Well known directory 'Externals': 'C:\AutomacaoWS\webservices\actions-runner\externals'
+[2026-01-31 16:17:18Z INFO ProcessInvokerWrapper] Starting process:
+[2026-01-31 16:17:18Z INFO ProcessInvokerWrapper]   File name: 'C:\AutomacaoWS\webservices\actions-runner\externals\node20\bin\node.exe'
+[2026-01-31 16:17:18Z INFO ProcessInvokerWrapper]   Arguments: '"C:\AutomacaoWS\webservices\actions-runner\_work\_actions\actions\checkout\v4\dist/index.js"'
+[2026-01-31 16:17:18Z INFO ProcessInvokerWrapper]   Working directory: 'C:\AutomacaoWS\webservices\actions-runner\_work\webservices\webservices'
+[2026-01-31 16:17:18Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-01-31 16:17:18Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2026-01-31 16:17:18Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-01-31 16:17:18Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-01-31 16:17:18Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-01-31 16:17:18Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-01-31 16:17:18Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-01-31 16:17:18Z INFO ProcessInvokerWrapper] Process started with process id 23408, waiting for process exit.
+[2026-01-31 16:17:18Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:18Z INFO AddMaskCommandExtension] Add new secret mask with length of 76
+[2026-01-31 16:17:18Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:18Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-01-31 16:17:18Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\AutomacaoWS\webservices\actions-runner\_diag\blocks\5977fd17-7fab-432d-8fcc-25745a1992cd_416b1126-3eb0-48ba-9052-5aea344f9409.1
+[2026-01-31 16:17:18Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2026-01-31 16:17:18Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:19Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:19Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:19Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2026-01-31 16:17:19Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:22Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:22Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:23Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:25Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:25Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:25Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:26Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:27Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:27Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:27Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:29Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:29Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:32Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:35Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:35Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:37Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:37Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:37Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:47Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:47Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:47Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:47Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:47Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:48Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:50Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:50Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:50Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:51Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:51Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:51Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:51Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:52Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:52Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:52Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:52Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:53Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:54Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:54Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:54Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:54Z INFO JobServerQueue] Try to append 1 batches web console lines for record '29439619-c3f3-49ef-ad28-3b0825574241', success rate: 1/1.
+[2026-01-31 16:17:54Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-31 16:17:54Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-31 16:17:54Z INFO ProcessInvokerWrapper] Finished process 23408 with exit code 0, and elapsed time 00:00:36.8555592.
+[2026-01-31 16:17:54Z INFO CreateStepSummaryCommand] Step Summary file (C:\AutomacaoWS\webservices\actions-runner\_work\_temp\_runner_file_commands\step_summary_5e37c034-bf01-4ea4-b838-ba3b221430fe) is empty; skipping attachment upload
+[2026-01-31 16:17:54Z INFO StepsRunner] Step result: 
+[2026-01-31 16:17:54Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v4",
+  "type": "node20",
+  "stage": "Main",
+  "stepId": "29439619-c3f3-49ef-ad28-3b0825574241",
+  "stepContextName": "__actions_checkout",
+  "hasPreStep": false,
+  "hasPostStep": true,
+  "result": "succeeded",
+  "errorMessages": [
+    "no submodule mapping found in .gitmodules for path 'actions-runner/_work/webservices/webservices'",
+    "Unable to clean or reset the repository. The repository will be recreated instead."
+  ],
+  "executionTimeInSeconds": 38,
+  "startTime": "2026-01-31T16:17:17.8300651Z",
+  "finishTime": "2026-01-31T16:17:54.9423907Z"
+}.
+[2026-01-31 16:17:54Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-01-31 16:17:54Z INFO StepsRunner] Current state: job state = ''
+[2026-01-31 16:17:54Z INFO StepsRunner] Processing step: DisplayName='Executar Maven Test'
+[2026-01-31 16:17:54Z INFO StepsRunner] Evaluating: success()
+[2026-01-31 16:17:54Z INFO StepsRunner] Result: true
+[2026-01-31 16:17:54Z INFO StepsRunner] Starting the step.
+[2026-01-31 16:17:54Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:54Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:54Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:54Z INFO StepsRunner] Which2: 'chcp'
+[2026-01-31 16:17:54Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2026-01-31 16:17:54Z INFO ProcessInvokerWrapper] Starting process:
+[2026-01-31 16:17:54Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2026-01-31 16:17:54Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-01-31 16:17:54Z INFO ProcessInvokerWrapper]   Working directory: 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:54Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-01-31 16:17:54Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-01-31 16:17:54Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-01-31 16:17:54Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-01-31 16:17:54Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-01-31 16:17:54Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-01-31 16:17:54Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-01-31 16:17:54Z INFO ProcessInvokerWrapper] Process started with process id 28980, waiting for process exit.
+[2026-01-31 16:17:55Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-31 16:17:55Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-31 16:17:55Z INFO ProcessInvokerWrapper] Finished process 28980 with exit code 0, and elapsed time 00:00:00.1032491.
+[2026-01-31 16:17:55Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-01-31 16:17:55Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:55Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:55Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:55Z INFO HostContext] Well known directory 'Temp': 'C:\AutomacaoWS\webservices\actions-runner\_work\_temp'
+[2026-01-31 16:17:55Z INFO ExecutionContext] Write event payload to C:\AutomacaoWS\webservices\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-01-31 16:17:55Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2026-01-31 16:17:55Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:55Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:55Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:55Z INFO HostContext] Well known directory 'Temp': 'C:\AutomacaoWS\webservices\actions-runner\_work\_temp'
+[2026-01-31 16:17:55Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-01-31 16:17:55Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-01-31 16:17:55Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-01-31 16:17:55Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-01-31 16:17:55Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-01-31 16:17:55Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-01-31 16:17:55Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-01-31 16:17:55Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-01-31 16:17:55Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-01-31 16:17:55Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-01-31 16:17:55Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-01-31 16:17:55Z INFO ActionCommandManager] Register action command extension for command error
+[2026-01-31 16:17:55Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-01-31 16:17:55Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-01-31 16:17:55Z INFO ActionCommandManager] Register action command extension for command group
+[2026-01-31 16:17:55Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-01-31 16:17:55Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-01-31 16:17:55Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-01-31 16:17:55Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:17:55Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-01-31 16:17:55Z INFO ScriptHandler] Defaulting to powershell
+[2026-01-31 16:17:55Z INFO ScriptHandler] Which2: 'powershell'
+[2026-01-31 16:17:55Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-01-31 16:17:55Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:55Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:55Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:55Z INFO HostContext] Well known directory 'Temp': 'C:\AutomacaoWS\webservices\actions-runner\_work\_temp'
+[2026-01-31 16:17:55Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-01-31 16:17:55Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-01-31 16:17:55Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\AutomacaoWS\webservices\actions-runner\_diag\blocks\5977fd17-7fab-432d-8fcc-25745a1992cd_29439619-c3f3-49ef-ad28-3b0825574241.1
+[2026-01-31 16:17:55Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-01-31 16:17:55Z INFO ScriptHandler] Defaulting to powershell
+[2026-01-31 16:17:55Z INFO ScriptHandler] Which2: 'powershell'
+[2026-01-31 16:17:55Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-01-31 16:17:55Z INFO ProcessInvokerWrapper] Starting process:
+[2026-01-31 16:17:55Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-01-31 16:17:55Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\AutomacaoWS\webservices\actions-runner\_work\_temp\a2e35482-eae7-4952-b57b-72129697a29c.ps1'"'
+[2026-01-31 16:17:55Z INFO ProcessInvokerWrapper]   Working directory: 'C:\AutomacaoWS\webservices\actions-runner\_work\webservices\webservices'
+[2026-01-31 16:17:55Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-01-31 16:17:55Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-01-31 16:17:55Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-01-31 16:17:55Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-01-31 16:17:55Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-01-31 16:17:55Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-01-31 16:17:55Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-01-31 16:17:55Z INFO ProcessInvokerWrapper] Process started with process id 36324, waiting for process exit.
+[2026-01-31 16:17:55Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:17:55Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2026-01-31 16:17:57Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:17:57Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:17:57Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:17:57Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:17:58Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:01Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:02Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:02Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:02Z INFO JobServerQueue] Try to append 2 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 2/2.
+[2026-01-31 16:18:03Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:04Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:04Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:04Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:04Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:05Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:06Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:06Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:06Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:06Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:07Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:07Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:07Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:07Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:18:07Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:18:07Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:18:07Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:08Z INFO JobServerQueue] Try to append 2 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 2/2.
+[2026-01-31 16:18:08Z INFO JobServerQueue] Try to append 2 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 2/2.
+[2026-01-31 16:18:08Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:08Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:09Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:09Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:10Z INFO JobServerQueue] Stop aggressive process web console line queue.
+[2026-01-31 16:18:10Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:11Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:12Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:12Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-31 16:18:12Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-31 16:18:12Z INFO ProcessInvokerWrapper] Finished process 36324 with exit code 1, and elapsed time 00:00:17.6538999.
+[2026-01-31 16:18:12Z INFO CreateStepSummaryCommand] Step Summary file (C:\AutomacaoWS\webservices\actions-runner\_work\_temp\_runner_file_commands\step_summary_3a95b338-10c8-4863-beb7-cc0bd626a3cd) is empty; skipping attachment upload
+[2026-01-31 16:18:12Z INFO StepsRunner] Step result: Failed
+[2026-01-31 16:18:12Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "e4dd83fa-723c-4ab4-92b7-6e722614d432",
+  "stepContextName": "__run",
+  "result": "failed",
+  "errorMessages": [
+    "Process completed with exit code 1."
+  ],
+  "executionTimeInSeconds": 18,
+  "startTime": "2026-01-31T16:17:54.9532424Z",
+  "finishTime": "2026-01-31T16:18:12.9265798Z"
+}.
+[2026-01-31 16:18:12Z INFO StepsRunner] Update job result with current step result 'Failed'.
+[2026-01-31 16:18:12Z INFO StepsRunner] Current state: job state = 'Failed'
+[2026-01-31 16:18:12Z INFO StepsRunner] Processing step: DisplayName='Upload de Resultados'
+[2026-01-31 16:18:12Z INFO StepsRunner] Evaluating: always()
+[2026-01-31 16:18:12Z INFO StepsRunner] Result: true
+[2026-01-31 16:18:12Z INFO StepsRunner] Starting the step.
+[2026-01-31 16:18:12Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:18:12Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:18:12Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:18:12Z INFO StepsRunner] Which2: 'chcp'
+[2026-01-31 16:18:12Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2026-01-31 16:18:12Z INFO ProcessInvokerWrapper] Starting process:
+[2026-01-31 16:18:12Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2026-01-31 16:18:12Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-01-31 16:18:12Z INFO ProcessInvokerWrapper]   Working directory: 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:18:12Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-01-31 16:18:12Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-01-31 16:18:12Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-01-31 16:18:12Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-01-31 16:18:12Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-01-31 16:18:12Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-01-31 16:18:12Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-01-31 16:18:12Z INFO ProcessInvokerWrapper] Process started with process id 2220, waiting for process exit.
+[2026-01-31 16:18:13Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e4dd83fa-723c-4ab4-92b7-6e722614d432', success rate: 1/1.
+[2026-01-31 16:18:13Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-31 16:18:13Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-31 16:18:13Z INFO ProcessInvokerWrapper] Finished process 2220 with exit code 0, and elapsed time 00:00:00.1154586.
+[2026-01-31 16:18:13Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-01-31 16:18:13Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:18:13Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:18:13Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:18:13Z INFO HostContext] Well known directory 'Actions': 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions'
+[2026-01-31 16:18:13Z INFO ActionManager] Load action that reference repository from 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions\actions\upload-artifact\v4'
+[2026-01-31 16:18:13Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:18:13Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:18:13Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:18:13Z INFO HostContext] Well known directory 'Actions': 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions'
+[2026-01-31 16:18:13Z INFO ActionManifestManagerLegacy] Ignore action property author.
+[2026-01-31 16:18:13Z INFO ActionManifestManagerLegacy] Loaded action.yml file: {
+  "name": "Upload a Build Artifact",
+  "description": "Upload a build artifact that can be used by subsequent workflow steps",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 5,
+          "col": 3,
+          "lit": "name"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 7,
+          "col": 14,
+          "lit": "artifact"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 8,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 11,
+          "col": 3,
+          "lit": "if-no-files-found"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 19,
+          "col": 14,
+          "lit": "warn"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 20,
+          "col": 3,
+          "lit": "retention-days"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 26,
+          "col": 3,
+          "lit": "compression-level"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 36,
+          "col": 14,
+          "lit": "6"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 37,
+          "col": 3,
+          "lit": "overwrite"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 42,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 43,
+          "col": 3,
+          "lit": "include-hidden-files"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 47,
+          "col": 14,
+          "lit": "false"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/upload/index.js",
+    "pre": null,
+    "post": null,
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2026-01-31 16:18:13Z INFO ActionManager] Action pre node.js file: N/A.
+[2026-01-31 16:18:13Z INFO ActionManager] Action node.js file: dist/upload/index.js.
+[2026-01-31 16:18:13Z INFO ActionManager] Action post node.js file: N/A.
+[2026-01-31 16:18:13Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:18:13Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:18:13Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:18:13Z INFO HostContext] Well known directory 'Temp': 'C:\AutomacaoWS\webservices\actions-runner\_work\_temp'
+[2026-01-31 16:18:13Z INFO ExecutionContext] Write event payload to C:\AutomacaoWS\webservices\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-01-31 16:18:13Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:18:13Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:18:13Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:18:13Z INFO HostContext] Well known directory 'Temp': 'C:\AutomacaoWS\webservices\actions-runner\_work\_temp'
+[2026-01-31 16:18:13Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-01-31 16:18:13Z INFO ActionManifestManagerLegacy] Input 'if-no-files-found': default value evaluate result: {
+  "type": 0,
+  "file": 3,
+  "line": 19,
+  "col": 14,
+  "lit": "warn"
+}
+[2026-01-31 16:18:13Z INFO ActionManifestManagerLegacy] Input 'retention-days': default value evaluate result: ""
+[2026-01-31 16:18:13Z INFO ActionManifestManagerLegacy] Input 'compression-level': default value evaluate result: {
+  "type": 0,
+  "file": 3,
+  "line": 36,
+  "col": 14,
+  "lit": "6"
+}
+[2026-01-31 16:18:13Z INFO ActionManifestManagerLegacy] Input 'overwrite': default value evaluate result: {
+  "type": 0,
+  "file": 3,
+  "line": 42,
+  "col": 14,
+  "lit": "false"
+}
+[2026-01-31 16:18:13Z INFO ActionManifestManagerLegacy] Input 'include-hidden-files': default value evaluate result: {
+  "type": 0,
+  "file": 3,
+  "line": 47,
+  "col": 14,
+  "lit": "false"
+}
+[2026-01-31 16:18:13Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-01-31 16:18:13Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-01-31 16:18:13Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-01-31 16:18:13Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-01-31 16:18:13Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-01-31 16:18:13Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-01-31 16:18:13Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-01-31 16:18:13Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-01-31 16:18:13Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-01-31 16:18:13Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-01-31 16:18:13Z INFO ActionCommandManager] Register action command extension for command error
+[2026-01-31 16:18:13Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-01-31 16:18:13Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-01-31 16:18:13Z INFO ActionCommandManager] Register action command extension for command group
+[2026-01-31 16:18:13Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-01-31 16:18:13Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-01-31 16:18:13Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:18:13Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:18:13Z INFO HostContext] Well known directory 'Externals': 'C:\AutomacaoWS\webservices\actions-runner\externals'
+[2026-01-31 16:18:13Z INFO ProcessInvokerWrapper] Starting process:
+[2026-01-31 16:18:13Z INFO ProcessInvokerWrapper]   File name: 'C:\AutomacaoWS\webservices\actions-runner\externals\node20\bin\node.exe'
+[2026-01-31 16:18:13Z INFO ProcessInvokerWrapper]   Arguments: '"C:\AutomacaoWS\webservices\actions-runner\_work\_actions\actions\upload-artifact\v4\dist/upload/index.js"'
+[2026-01-31 16:18:13Z INFO ProcessInvokerWrapper]   Working directory: 'C:\AutomacaoWS\webservices\actions-runner\_work\webservices\webservices'
+[2026-01-31 16:18:13Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-01-31 16:18:13Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2026-01-31 16:18:13Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-01-31 16:18:13Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-01-31 16:18:13Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-01-31 16:18:13Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-01-31 16:18:13Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-01-31 16:18:13Z INFO ProcessInvokerWrapper] Process started with process id 30580, waiting for process exit.
+[2026-01-31 16:18:13Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2026-01-31 16:18:13Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1d82a7c6-8e53-4e79-bcb1-eefab42688d2', success rate: 1/1.
+[2026-01-31 16:18:13Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-01-31 16:18:13Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\AutomacaoWS\webservices\actions-runner\_diag\blocks\5977fd17-7fab-432d-8fcc-25745a1992cd_e4dd83fa-723c-4ab4-92b7-6e722614d432.1
+[2026-01-31 16:18:14Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1d82a7c6-8e53-4e79-bcb1-eefab42688d2', success rate: 1/1.
+[2026-01-31 16:18:14Z INFO AddMaskCommandExtension] Add new secret mask with length of 44
+[2026-01-31 16:18:14Z INFO AddMaskCommandExtension] Add new secret mask with length of 50
+[2026-01-31 16:18:14Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2026-01-31 16:18:14Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1d82a7c6-8e53-4e79-bcb1-eefab42688d2', success rate: 1/1.
+[2026-01-31 16:18:15Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1d82a7c6-8e53-4e79-bcb1-eefab42688d2', success rate: 1/1.
+[2026-01-31 16:18:15Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-31 16:18:15Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-31 16:18:15Z INFO ProcessInvokerWrapper] Finished process 30580 with exit code 0, and elapsed time 00:00:02.7318720.
+[2026-01-31 16:18:15Z INFO CreateStepSummaryCommand] Step Summary file (C:\AutomacaoWS\webservices\actions-runner\_work\_temp\_runner_file_commands\step_summary_1cf8cd12-9c2c-487e-b95f-9e9fea34f3a0) is empty; skipping attachment upload
+[2026-01-31 16:18:15Z INFO StepsRunner] Step result: 
+[2026-01-31 16:18:15Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/upload-artifact",
+  "ref": "v4",
+  "type": "node20",
+  "stage": "Main",
+  "stepId": "1d82a7c6-8e53-4e79-bcb1-eefab42688d2",
+  "stepContextName": "__actions_upload-artifact",
+  "hasPreStep": false,
+  "hasPostStep": false,
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 3,
+  "startTime": "2026-01-31T16:18:12.9397439Z",
+  "finishTime": "2026-01-31T16:18:15.8546959Z"
+}.
+[2026-01-31 16:18:15Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-01-31 16:18:15Z INFO StepsRunner] Current state: job state = 'Failed'
+[2026-01-31 16:18:15Z INFO StepsRunner] Processing step: DisplayName='Post Checkout do Código'
+[2026-01-31 16:18:15Z INFO StepsRunner] Evaluating: always()
+[2026-01-31 16:18:15Z INFO StepsRunner] Result: true
+[2026-01-31 16:18:15Z INFO StepsRunner] Starting the step.
+[2026-01-31 16:18:15Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:18:15Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:18:15Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:18:15Z INFO StepsRunner] Which2: 'chcp'
+[2026-01-31 16:18:15Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2026-01-31 16:18:15Z INFO ProcessInvokerWrapper] Starting process:
+[2026-01-31 16:18:15Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2026-01-31 16:18:15Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-01-31 16:18:15Z INFO ProcessInvokerWrapper]   Working directory: 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:18:15Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-01-31 16:18:15Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-01-31 16:18:15Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-01-31 16:18:15Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-01-31 16:18:15Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-01-31 16:18:15Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-01-31 16:18:15Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-01-31 16:18:15Z INFO ProcessInvokerWrapper] Process started with process id 26648, waiting for process exit.
+[2026-01-31 16:18:15Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-31 16:18:15Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-31 16:18:15Z INFO ProcessInvokerWrapper] Finished process 26648 with exit code 0, and elapsed time 00:00:00.1105845.
+[2026-01-31 16:18:15Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-01-31 16:18:15Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:18:15Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:18:15Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:18:15Z INFO HostContext] Well known directory 'Actions': 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions'
+[2026-01-31 16:18:15Z INFO ActionManager] Load action that reference repository from 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions\actions\checkout\v4'
+[2026-01-31 16:18:15Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:18:15Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:18:15Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:18:15Z INFO HostContext] Well known directory 'Actions': 'C:\AutomacaoWS\webservices\actions-runner\_work\_actions'
+[2026-01-31 16:18:15Z INFO ActionManifestManagerLegacy] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2026-01-31 16:18:15Z INFO ActionManager] Action pre node.js file: N/A.
+[2026-01-31 16:18:15Z INFO ActionManager] Action node.js file: dist/index.js.
+[2026-01-31 16:18:15Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2026-01-31 16:18:15Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:18:15Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:18:15Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:18:15Z INFO HostContext] Well known directory 'Temp': 'C:\AutomacaoWS\webservices\actions-runner\_work\_temp'
+[2026-01-31 16:18:15Z INFO ExecutionContext] Write event payload to C:\AutomacaoWS\webservices\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-01-31 16:18:15Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:18:15Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:18:15Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:18:15Z INFO HostContext] Well known directory 'Temp': 'C:\AutomacaoWS\webservices\actions-runner\_work\_temp'
+[2026-01-31 16:18:15Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-01-31 16:18:16Z INFO ActionManifestManagerLegacy] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "fkiyoshim/webservices"
+}
+[2026-01-31 16:18:16Z INFO ActionManifestManagerLegacy] Input 'ref': default value evaluate result: ""
+[2026-01-31 16:18:16Z INFO ActionManifestManagerLegacy] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2026-01-31 16:18:16Z INFO ActionManifestManagerLegacy] Input 'ssh-key': default value evaluate result: ""
+[2026-01-31 16:18:16Z INFO ActionManifestManagerLegacy] Input 'ssh-known-hosts': default value evaluate result: ""
+[2026-01-31 16:18:16Z INFO ActionManifestManagerLegacy] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-31 16:18:16Z INFO ActionManifestManagerLegacy] Input 'ssh-user': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 51,
+  "col": 14,
+  "lit": "git"
+}
+[2026-01-31 16:18:16Z INFO ActionManifestManagerLegacy] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 54,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-31 16:18:16Z INFO ActionManifestManagerLegacy] Input 'path': default value evaluate result: ""
+[2026-01-31 16:18:16Z INFO ActionManifestManagerLegacy] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 59,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-31 16:18:16Z INFO ActionManifestManagerLegacy] Input 'filter': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 64,
+  "col": 14,
+  "lit": ""
+}
+[2026-01-31 16:18:16Z INFO ActionManifestManagerLegacy] Input 'sparse-checkout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 69,
+  "col": 14,
+  "lit": ""
+}
+[2026-01-31 16:18:16Z INFO ActionManifestManagerLegacy] Input 'sparse-checkout-cone-mode': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-31 16:18:16Z INFO ActionManifestManagerLegacy] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 76,
+  "col": 14,
+  "lit": "1"
+}
+[2026-01-31 16:18:16Z INFO ActionManifestManagerLegacy] Input 'fetch-tags': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 79,
+  "col": 14,
+  "lit": "false"
+}
+[2026-01-31 16:18:16Z INFO ActionManifestManagerLegacy] Input 'show-progress': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 82,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-31 16:18:16Z INFO ActionManifestManagerLegacy] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 85,
+  "col": 14,
+  "lit": "false"
+}
+[2026-01-31 16:18:16Z INFO ActionManifestManagerLegacy] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 94,
+  "col": 14,
+  "lit": "false"
+}
+[2026-01-31 16:18:16Z INFO ActionManifestManagerLegacy] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 97,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-31 16:18:16Z INFO ActionManifestManagerLegacy] Input 'github-server-url': default value evaluate result: ""
+[2026-01-31 16:18:16Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-01-31 16:18:16Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-01-31 16:18:16Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-01-31 16:18:16Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-01-31 16:18:16Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-01-31 16:18:16Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-01-31 16:18:16Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-01-31 16:18:16Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-01-31 16:18:16Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-01-31 16:18:16Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-01-31 16:18:16Z INFO ActionCommandManager] Register action command extension for command error
+[2026-01-31 16:18:16Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-01-31 16:18:16Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-01-31 16:18:16Z INFO ActionCommandManager] Register action command extension for command group
+[2026-01-31 16:18:16Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-01-31 16:18:16Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-01-31 16:18:16Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:18:16Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:18:16Z INFO HostContext] Well known directory 'Externals': 'C:\AutomacaoWS\webservices\actions-runner\externals'
+[2026-01-31 16:18:16Z INFO ProcessInvokerWrapper] Starting process:
+[2026-01-31 16:18:16Z INFO ProcessInvokerWrapper]   File name: 'C:\AutomacaoWS\webservices\actions-runner\externals\node20\bin\node.exe'
+[2026-01-31 16:18:16Z INFO ProcessInvokerWrapper]   Arguments: '"C:\AutomacaoWS\webservices\actions-runner\_work\_actions\actions\checkout\v4\dist/index.js"'
+[2026-01-31 16:18:16Z INFO ProcessInvokerWrapper]   Working directory: 'C:\AutomacaoWS\webservices\actions-runner\_work\webservices\webservices'
+[2026-01-31 16:18:16Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-01-31 16:18:16Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2026-01-31 16:18:16Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-01-31 16:18:16Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-01-31 16:18:16Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-01-31 16:18:16Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-01-31 16:18:16Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-01-31 16:18:16Z INFO ProcessInvokerWrapper] Process started with process id 34660, waiting for process exit.
+[2026-01-31 16:18:16Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1d82a7c6-8e53-4e79-bcb1-eefab42688d2', success rate: 1/1.
+[2026-01-31 16:18:16Z INFO JobServerQueue] Try to append 1 batches web console lines for record '747c5e6a-ca50-40c4-a151-2341cb59f1d4', success rate: 1/1.
+[2026-01-31 16:18:16Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2026-01-31 16:18:16Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-01-31 16:18:16Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\AutomacaoWS\webservices\actions-runner\_diag\blocks\5977fd17-7fab-432d-8fcc-25745a1992cd_1d82a7c6-8e53-4e79-bcb1-eefab42688d2.1
+[2026-01-31 16:18:16Z INFO AddMaskCommandExtension] Add new secret mask with length of 32
+[2026-01-31 16:18:16Z INFO JobServerQueue] Try to append 1 batches web console lines for record '747c5e6a-ca50-40c4-a151-2341cb59f1d4', success rate: 1/1.
+[2026-01-31 16:18:16Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2026-01-31 16:18:17Z INFO JobServerQueue] Try to append 1 batches web console lines for record '747c5e6a-ca50-40c4-a151-2341cb59f1d4', success rate: 1/1.
+[2026-01-31 16:18:17Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:18:17Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:18:17Z INFO HostContext] Well known directory 'Work': 'C:\AutomacaoWS\webservices\actions-runner\_work'
+[2026-01-31 16:18:19Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-31 16:18:19Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-31 16:18:19Z INFO ProcessInvokerWrapper] Finished process 34660 with exit code 0, and elapsed time 00:00:03.7573403.
+[2026-01-31 16:18:19Z INFO CreateStepSummaryCommand] Step Summary file (C:\AutomacaoWS\webservices\actions-runner\_work\_temp\_runner_file_commands\step_summary_2a397606-4e6e-45db-a546-bf625a227941) is empty; skipping attachment upload
+[2026-01-31 16:18:19Z INFO StepsRunner] Step result: 
+[2026-01-31 16:18:19Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v4",
+  "type": "node20",
+  "stage": "Post",
+  "stepId": "747c5e6a-ca50-40c4-a151-2341cb59f1d4",
+  "result": "succeeded",
+  "errorMessages": [
+    "The process 'C:\\Program Files\\Git\\cmd\\git.exe' failed with exit code 128"
+  ],
+  "executionTimeInSeconds": 4,
+  "startTime": "2026-01-31T16:18:15.8634745Z",
+  "finishTime": "2026-01-31T16:18:19.7856926Z"
+}.
+[2026-01-31 16:18:19Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-01-31 16:18:19Z INFO StepsRunner] Current state: job state = 'Failed'
+[2026-01-31 16:18:19Z INFO JobRunner] Finalize job.
+[2026-01-31 16:18:19Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:18:19Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:18:19Z INFO HostContext] Well known directory 'Diag': 'C:\AutomacaoWS\webservices\actions-runner\_diag'
+[2026-01-31 16:18:19Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:18:19Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:18:19Z INFO HostContext] Well known directory 'Diag': 'C:\AutomacaoWS\webservices\actions-runner\_diag'
+[2026-01-31 16:18:19Z INFO JobExtension] Initialize Env context
+[2026-01-31 16:18:19Z INFO JobExtension] Initialize steps context
+[2026-01-31 16:18:19Z INFO JobExtension] Total accessible running process: 359.
+[2026-01-31 16:18:19Z INFO JobExtension] Wait for all connectivity checks to finish.
+[2026-01-31 16:18:19Z INFO JobExtension] Connectivity check result: GitHub.Runner.Worker.JobExtension+CheckResult
+[2026-01-31 16:18:19Z INFO JobExtension] Connectivity check result: GitHub.Runner.Worker.JobExtension+CheckResult
+[2026-01-31 16:18:19Z INFO JobExtension] Connectivity check result: GitHub.Runner.Worker.JobExtension+CheckResult
+[2026-01-31 16:18:19Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "complete_job",
+  "type": "runner",
+  "stage": "Post",
+  "stepId": "8297a443-65de-4ec9-b39d-f3f785583ef4",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2026-01-31T16:18:19.8000918Z",
+  "finishTime": "2026-01-31T16:18:19.8235234Z"
+}.
+[2026-01-31 16:18:19Z INFO JobRunner] Job result after all job steps finish: Failed
+[2026-01-31 16:18:19Z INFO JobRunner] Completing the job execution context.
+[2026-01-31 16:18:19Z INFO JobRunner] Shutting down the job server queue.
+[2026-01-31 16:18:19Z INFO JobServerQueue] Fire signal to shutdown all queues.
+[2026-01-31 16:18:20Z INFO JobServerQueue] All queue process task stopped.
+[2026-01-31 16:18:20Z INFO JobServerQueue] Try to append 1 batches web console lines for record '747c5e6a-ca50-40c4-a151-2341cb59f1d4', success rate: 1/1.
+[2026-01-31 16:18:20Z INFO JobServerQueue] Try to append 1 batches web console lines for record '8297a443-65de-4ec9-b39d-f3f785583ef4', success rate: 1/1.
+[2026-01-31 16:18:20Z INFO JobServerQueue] Web console line queue drained.
+[2026-01-31 16:18:20Z INFO JobServerQueue] Uploading 3 files in one shot.
+[2026-01-31 16:18:20Z INFO JobServerQueue] Try to upload 3 log files or attachments, success rate: 3/3.
+[2026-01-31 16:18:20Z INFO JobServerQueue] File upload queue drained.
+[2026-01-31 16:18:20Z INFO JobServerQueue] Starting results-based upload queue...
+[2026-01-31 16:18:20Z INFO JobServerQueue] Uploading 3 file(s) in one shot through results service.
+[2026-01-31 16:18:20Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-01-31 16:18:20Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\AutomacaoWS\webservices\actions-runner\_diag\blocks\5977fd17-7fab-432d-8fcc-25745a1992cd_747c5e6a-ca50-40c4-a151-2341cb59f1d4.1
+[2026-01-31 16:18:20Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-01-31 16:18:20Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\AutomacaoWS\webservices\actions-runner\_diag\blocks\5977fd17-7fab-432d-8fcc-25745a1992cd_8297a443-65de-4ec9-b39d-f3f785583ef4.1
+[2026-01-31 16:18:21Z INFO JobServerQueue] Got a job log file to send to results service.
+[2026-01-31 16:18:21Z INFO JobServerQueue] Starting upload of job log file to results service ResultsLog, C:\AutomacaoWS\webservices\actions-runner\_diag\blocks\5977fd17-7fab-432d-8fcc-25745a1992cd_45015cb4-f244-5cc2-b6d4-a368746501d8.1
+[2026-01-31 16:18:21Z INFO JobServerQueue] Tried to upload 3 file(s) to results, success rate: 3/3.
+[2026-01-31 16:18:21Z INFO JobServerQueue] Results upload queue drained.
+[2026-01-31 16:18:21Z INFO JobServerQueue] Timeline update queue drained.
+[2026-01-31 16:18:21Z INFO JobServerQueue] Disposing job server ...
+[2026-01-31 16:18:21Z INFO JobServerQueue] Disposing results server ...
+[2026-01-31 16:18:21Z INFO JobServerQueue] All queue process tasks have been stopped, and all queues are drained.
+[2026-01-31 16:18:21Z INFO TempDirectoryManager] Cleaning runner temp folder: C:\AutomacaoWS\webservices\actions-runner\_work\_temp
+[2026-01-31 16:18:21Z INFO HostContext] Well known directory 'Bin': 'C:\AutomacaoWS\webservices\actions-runner\bin'
+[2026-01-31 16:18:21Z INFO HostContext] Well known directory 'Root': 'C:\AutomacaoWS\webservices\actions-runner'
+[2026-01-31 16:18:21Z INFO HostContext] Well known directory 'Diag': 'C:\AutomacaoWS\webservices\actions-runner\_diag'
+[2026-01-31 16:18:21Z INFO HostContext] Well known config file 'Telemetry': 'C:\AutomacaoWS\webservices\actions-runner\_diag\.telemetry'
+[2026-01-31 16:18:21Z INFO JobRunner] Raising job completed against run service
+[2026-01-31 16:18:22Z INFO Worker] Job completed.

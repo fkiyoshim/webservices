@@ -1,0 +1,51 @@
+CPqD/ETICS - Teste Automatico - Webservices (oper)
+
+Autor: Luciano H. Ukuma
+
+Data: Agosto/2018
+
+Descrição: Ferramenta para o teste automático dos seguintes fluxos dos Webservices do cliente Vivo:
+  - Reserva (reserveResource)
+  - Cancelamento de Reserva (manageResourceProvisioningActivity)
+  - Alocação (allocateResource)
+  - Cancelamento de Alocação (manageResourceProvisioningActivity)
+  - Associação de Serviços (manageServiceProvisioningActivity)
+  - Desassociação de Serviços (manageServiceProvisioningActivity)
+  - Cadastro de Retirada (releaseResource)
+  - Cancelamento de Retirada (manageResourceProvisioningActivity)
+  - Confirmação de Retirada (manageResourceProvisioningActivity)
+  - Consulta Recursos (distributeResourceProvisioningReports)
+  - Associação de Bilhete de Defeito (updateResourceRepository)
+  - Desassociação de Bilhete de Defeito (updateResourceRepository)
+  - Consulta Viabilidade (determineResourceAvailability)
+  - Manobra Forçada de Recursos (releaseAllocateResource)
+  - Consulta Recursos em Equipamento Terminal (distributeFreeResourceTerminalEquipment)
+
+
+Instruções de uso:
+
+1) Utilizar o banco TLF_BR_SPO_VM nos testes, pois os casos de teste da ferramenta estão associados a este banco. O backup, na versão ETICS 8.27.241.0.1, está disponível em https://drive.google.com/drive/folders/18z9Okm6U8W5EQa_3RE_TQ2PMdCIX9LRJ. É necessário que este backup seja utilizado no ambiente de teste a ser testado. Antes da execução do patch recomenda-se retornar a base para uma versão anterior a 8.27.241.
+
+2) Copiar os arquivos de https://svn.cpqd.com.br/cpqd/dsso-dev/Garantia_Qualidade_Produto/padroes/testes_automaticos/Integracoes/WebServicesVivo/8.27.280/  para algum diretório local, por exemplo, c:\WebServicesVivo.
+
+3) Verificar e modificar as informações/instruções da aba "Configurações" do "RT-WebServices_Vivo_Teste_Automatico.xls". 
+
+4) Consultar no módulo "Business Rules Engine" se existem arquivos de WorkFlow (menu Ferramentas -> Arquivos de WorkFlow) e de Regras (menu Ferramentas -> Arquivos de Regras) no estado (atributo Status) "Em Criação". Caso existam, execute a operação "Ativar" para esses arquivos.
+  
+5) Instalar o maven (https://maven.apache.org/) localmente. 
+
+6) Copiar o arquivo de configuração https://svn.cpqd.com.br/cpqd/dsso-dev/Garantia_Qualidade_Produto/padroes/testes_automaticos/Integracoes/WebServicesVivo/8.27.280/auxiliar/settings.xml no diretório home do usuário. Para isso executar os seguintes passos:
+  - Criar o diretório .m2 no home do usuário, caso ele não exista. No Windows ele deve ser criado em C:\Users\username\.m2. É necessário criar o diretório a partir do Prompt do DOS, visto que o Windows Explorer não permite esse nome de diretório. 
+  - Copiar o arquivo settings.xml dentro do diretório .m2. Mais detalhes podem ser encontrados em https://confluence.cpqd.com.br/display/TI/Maven
+
+7) Se na máquina em que será realizada a execução da ferramenta de teste estiver instalado o aplicativo SoapUI, entrar no diretório C:\Users\username\.soapuios e renomear a pasta "plugins" para "plugins_NOTinUse". Essa alteração não afeta o uso do SoapUI, mas modifica o comportamento do "jar" do SoapUI utilizado na implementação da ferramenta de teste.
+
+8) Após a realização dos passos 1) a 7) a ferramenta poderá ser executada. Para executar via linha de comando entre no diretório local onde o projeto foi copiado (passo 2) e execute o seguinte comando (via prompt): mvn clean test
+
+Informações:
+a) Na primeira vez em que a ferramenta executar será realizado o download de todas as dependências (jars) do projeto, assim o tempo de execução será maior. Nas demais será mais rápido.
+b) A planilha/roteiro com os resultados obtidos e o arquivo de log será gerado no diretório "target" que será criado ao executar a ferramenta.
+c) O nome do roteiro "RT-WebServices_Vivo_Teste_Automatico.xls" não deve ser modificado.
+d) O tempo médio de execução da ferramenta é de 25 minutos.
+
+
